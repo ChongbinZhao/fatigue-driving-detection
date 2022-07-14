@@ -56,7 +56,7 @@
 
 具体检测原理参考博客（此项目在此博客的基础上进行拓展，增加了`疲劳信息重置`、`疲劳警报`和`软件封装`等功能，并且搜集了一些博主没有给出的库文件，例如`shape_predictor_68_face_landmarks.dat`）
 
-##### [Dlib模型之驾驶员疲劳检测一](https://cungudafa.blog.csdn.net/article/details/103477960)
+[Dlib模型之驾驶员疲劳检测一](https://cungudafa.blog.csdn.net/article/details/103477960)
 
 [Dlib模型之驾驶员疲劳检测二](https://cungudafa.blog.csdn.net/article/details/103496881)
 
@@ -156,5 +156,5 @@
 
 #### 6. 封装成可执行exe
 
-将Python脚本文件封装成可执行exe用的是`Pyinstaller`，下载工程文件后点击`my_project.exe`就可以直接运行程序。
+将Python脚本文件封装成可执行exe用的是`Pyinstaller`，下载工程文件后点击`疲劳驾驶检测程序.exe`就可以直接运行程序。
 
