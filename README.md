@@ -1,5 +1,5 @@
 ### 疲劳驾驶检测系统（demo）
-
+<br>
 
 
 #### 1.实际效果
@@ -7,7 +7,7 @@
 ##### 1.1 系统界面
 
 <img src="https://raw.githubusercontent.com/ChongbinZhao/fatigue-driving-detection/master/pic/2.png" alt="img" style="zoom: 50%;" />
-
+<br>
 
 
 ##### 1.2 全部项目文件
@@ -15,6 +15,7 @@
 由于项目里有一些比较大的库文件以及封装后的exe比较大，github无法上传，所以完整版[点击这里](https://pan.baidu.com/s/17ehBuduMEbJF8OS6q9IWWQ?pwd=3456)下载（提取码3456）
 
 <img src="https://raw.githubusercontent.com/ChongbinZhao/fatigue-driving-detection/master/pic/1.png" alt="img" style="zoom: 67%;" />
+<br>
 
 #### 2.基本介绍
 
@@ -25,7 +26,7 @@
   - 检测效果稳定
   - 可通过交互界面手动调整算法参数 
   - 具有声响警报功能
-
+<br>
 
 
 #### 3.环境配置
@@ -35,7 +36,7 @@
 - Windows10
 - Python3.6.4
 - Pycharm Community 2021
-
+<br>
  
 
 ##### 3.2 主要的第三方包
@@ -47,7 +48,7 @@
 - thread：用于建立多线程，使得主程序和子程序能够独立运行且不冲突
 - wx(wxbuilder)：一个基于Python、用于构造UI界面的库
 - pyinstaller：将py脚本文件封装成可执行exe文件
-
+<br>
 
 
 
@@ -61,7 +62,7 @@
 [Dlib模型之驾驶员疲劳检测二](https://cungudafa.blog.csdn.net/article/details/103496881)
 
 [Dlib模型之驾驶员疲劳检测三](https://cungudafa.blog.csdn.net/article/details/103499230)
-
+<br>
 
 
 ##### 4.1 获取人脸模型的68个特征点
@@ -70,7 +71,7 @@
 - 紧接着用dlib.shape_predictor()函数和人脸识别开源数据集shape_predictor_68_face_landmarks.dat识别出人脸的68个特征点，然后在每一帧图片上标注出来
 
 <img src="https://raw.githubusercontent.com/ChongbinZhao/fatigue-driving-detection/master/pic/3.png" alt="img" style="zoom: 67%;" />
-
+<br>
 
 
 ##### 4.2 检测驾驶人眨眼情况
@@ -78,7 +79,7 @@
 当眼睛闭合到一定程度（EAR小于给定阈值）并持续数秒，就可以判断驾驶人为疲劳驾驶，其中眼睛特征点分布如下
 
 <img src="https://raw.githubusercontent.com/ChongbinZhao/fatigue-driving-detection/master/pic/4.png" alt="img" style="zoom: 67%;" />
-
+<br>
 
 
 
@@ -86,13 +87,13 @@
 ##### 4.3 检测驾驶人打哈欠情况
 
 定义嘴部宽度比`MAR：Mouth Aspect Ratio`，MAR计算原理与EAR计算原理一致
-
+<br>
 
 
 ##### 4.4 检测驾驶人瞌睡点头情况
 
 这一部分比较难懂，涉及到的知识有`头部姿态估计`和`像素坐标系与空间坐标系之间的转换`
-
+<br>
 
 
 ##### 4.5 建立多线程
@@ -100,7 +101,7 @@
 - 为了将疲劳驾驶检测部分和警报播报部分能异步运行，我们需要用到thread库来建立多线程
 - 如果不建立多线程，则只有警报播报完之后才能继续进行疲劳驾驶检测
 - 另外，在程序中多次启用同一个线程，每一次都要重新将这个线程实例化
-
+<br>
 
 
 #### 5. UI界面
@@ -109,13 +110,13 @@
 
 - 此项目所构造的UI界面基于第三方库wx，该第三方库能够提供C++、Python、PHP、Lua、XRC等不同语言的API，项目采用的是Python语言
 - UI界面设计的核心功能是`信号和槽`，即一个控件可以直接触发一个函数（当然函数中可以包含其他函数）
-
+<br>
 
 
 ##### 5.2 界面布局与主要控件功能
 
 <img src="https://raw.githubusercontent.com/ChongbinZhao/fatigue-driving-detection/master/pic/2.png" alt="img" style="zoom: 50%;" />
-
+<br>
 
 
 - **摄像头ID**：可控选择的有摄像头ID_0和摄像头ID_1，当计算机不接外置摄像头时，摄像头ID_0默认是本地摄像头；当接入外置摄像头时，可以通过切换摄像头ID来选择想要调用的摄像头。
@@ -151,10 +152,10 @@
 
 
 - **关闭警报**：关闭警报则是负责销毁已启用的警报播放线程，因为关闭警报播放线程实质上是将这个线程销毁，所以再次启用警报播放线程时要重新将这个线程实例化，否则程序会报错。
-
+<br>
 
 
 #### 6. 封装成可执行exe
 
 将Python脚本文件封装成可执行exe用的是`Pyinstaller`，下载工程文件后点击`疲劳驾驶检测程序.exe`就可以直接运行程序。
-
+<br>
